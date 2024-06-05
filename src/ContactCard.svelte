@@ -1,20 +1,26 @@
 <script>
     /** @type {string} */
     export let userName;
+    /** @type {string} */
+    export let jobTitle;
+    /** @type {string} */
+    export let description;
+    /** @type {string} */
+    export let image;
 </script>
 
 <div class="contact-card">
     <header>
-        <div class="thumb">
-            <img src="" alt="" />
+        <div class="thumb" class:thumb-placeholder={!image}>
+            <img src={image} alt={userName} />
         </div>
         <div class="user-data">
             <h1>{userName}</h1>
-            <h2>Job Title</h2>
+            <h2>{jobTitle}</h2>
         </div>
     </header>
     <div class="description">
-        <p>A short description</p>
+        <p>{description}</p>
     </div>
 </div>
 
@@ -37,6 +43,10 @@
         height: 10%;
     }
 
+    .thumb-placeholder {
+        background-color: #ccc;
+    }
+
     img {
         width: 100%;
         height: 100%;
@@ -48,6 +58,7 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        padding-left: 1rem;
     }
 
     h1 {
