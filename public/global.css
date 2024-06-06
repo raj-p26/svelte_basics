@@ -36,3 +36,26 @@ button:active {
 	border-color: #e40763;
 	box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
 }
+
+input,
+textarea {
+	width: 100%;
+	font-size: 1rem;
+	border: none;
+	box-shadow: 1px 1px 8px rgba(77, 51, 51, 0.26);
+}
+
+input:focus,
+textarea:focus {
+	border-color: #E40763;
+	outline: none;
+}
+
+label {
+	display: block;
+	margin: 0.5ren 0;
+}
+
+.form-control {
+	padding: .5rem 0;
+}

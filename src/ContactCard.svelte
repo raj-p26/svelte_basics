@@ -7,6 +7,8 @@
     export let description;
     /** @type {string} */
     export let image;
+
+    const initialName = userName;
 </script>
 
 <div class="contact-card">
@@ -15,7 +17,7 @@
             <img src={image} alt={userName} />
         </div>
         <div class="user-data">
-            <h1>{userName}</h1>
+            <h1>{userName} / {initialName}</h1>
             <h2>{jobTitle}</h2>
         </div>
     </header>
