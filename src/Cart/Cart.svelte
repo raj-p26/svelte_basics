@@ -1,31 +1,33 @@
 <script>
+  import { onDestroy } from "svelte";
   import cartItems from "./cart-store.js";
   import CartItem from "./CartItem.svelte";
+  import { timer } from "../Products/timer-store.js";
 
-  let items;
+  // let items;
 
-  cartItems.subscribe((its) => {
-    console.log(its);
-    items = its;
+  const unsubscribe = timer.subscribe((count) => {
+    console.log("Cart: " + count);
   });
-  // export let items = [
-  //   {
-  //     id: "p1",
-  //     title: "Test",
-  //     price: 9.99
-  //   },
-  //   {
-  //     id: "p2",
-  //     title: "Test",
-  //     price: 9.99
-  //   }
-  // ];
+
+  // const unsubscribe = cartItems.subscribe((its) => {
+  //   console.log(its);
+  //   items = its;
+  // });
+
+  onDestroy(() => {
+    if (unsubscribe) {
+      unsubscribe();
+    }
+  });
 </script>
 
 <section>
   <h1>Cart</h1>
   <ul>
-    {#each items as item (item.id)}
+    <!-- Shorthand syntax for autosubscribing and unsubscribing
+        to the store. -->
+    {#each $cartItems as item (item.id)}
       <CartItem id={item.id} title={item.title} price={item.price} />
     {:else}
       <p>No items in cart yet!</p>

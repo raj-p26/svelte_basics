@@ -8,14 +8,7 @@
   export let description;
 
   function addToCart() {
-    cartItems.update((items) => [
-      ...items,
-      {
-        id,
-        title,
-        price,
-      },
-    ]);
+    cartItems.addItem({ id, title, price });
   }
 </script>
 
